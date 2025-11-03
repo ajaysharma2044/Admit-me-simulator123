@@ -290,20 +290,20 @@ document.addEventListener('DOMContentLoaded', function() {
         probabilityValue.style.color = color;
         
         // Display breakdown
-        breakdownList.innerHTML = '';
-        breakdownList.innerHTML += `<li><strong>GPA Score:</strong> ${prediction.breakdown.gpa}/30</li>`;
-        breakdownList.innerHTML += `<li><strong>Test Score:</strong> ${prediction.breakdown.test}/25</li>`;
-        breakdownList.innerHTML += `<li><strong>Extracurriculars:</strong> ${prediction.breakdown.extracurriculars}/15</li>`;
-        breakdownList.innerHTML += `<li><strong>Leadership:</strong> ${prediction.breakdown.leadership}/10</li>`;
-        breakdownList.innerHTML += `<li><strong>Essay Quality:</strong> ${prediction.breakdown.essay}/10</li>`;
-        breakdownList.innerHTML += `<li><strong>Recommendations:</strong> ${prediction.breakdown.recommendations}/10</li>`;
-        breakdownList.innerHTML += `<li><strong>Volunteer Work:</strong> ${prediction.breakdown.volunteer}/5</li>`;
+        const breakdownHTML = `
+            <li><strong>GPA Score:</strong> ${prediction.breakdown.gpa}/30</li>
+            <li><strong>Test Score:</strong> ${prediction.breakdown.test}/25</li>
+            <li><strong>Extracurriculars:</strong> ${prediction.breakdown.extracurriculars}/15</li>
+            <li><strong>Leadership:</strong> ${prediction.breakdown.leadership}/10</li>
+            <li><strong>Essay Quality:</strong> ${prediction.breakdown.essay}/10</li>
+            <li><strong>Recommendations:</strong> ${prediction.breakdown.recommendations}/10</li>
+            <li><strong>Volunteer Work:</strong> ${prediction.breakdown.volunteer}/5</li>
+        `;
+        breakdownList.innerHTML = breakdownHTML;
         
         // Display recommendations
-        recommendationsList.innerHTML = '';
-        prediction.recommendations.forEach(rec => {
-            recommendationsList.innerHTML += `<li>${rec}</li>`;
-        });
+        const recommendationsHTML = prediction.recommendations.map(rec => `<li>${rec}</li>`).join('');
+        recommendationsList.innerHTML = recommendationsHTML;
         
         // Show results
         results.classList.remove('hidden');
