@@ -1,0 +1,321 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+/* Header Styles */
+header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 40px 30px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.subtitle {
+    font-size: 1.2em;
+    opacity: 0.9;
+}
+
+/* Main Content */
+main {
+    padding: 40px 30px;
+}
+
+/* Form Styles */
+.form-section {
+    margin-bottom: 35px;
+    padding-bottom: 25px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.form-section:last-of-type {
+    border-bottom: none;
+}
+
+.form-section h2 {
+    color: #667eea;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 1em;
+}
+
+.form-group input[type="number"],
+.form-group select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1em;
+    transition: all 0.3s ease;
+    background-color: #fafafa;
+}
+
+.form-group input[type="number"]:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #667eea;
+    background-color: white;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.form-group input[type="range"] {
+    width: calc(100% - 60px);
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.range-value {
+    display: inline-block;
+    width: 40px;
+    text-align: center;
+    font-weight: bold;
+    color: #667eea;
+    font-size: 1.1em;
+}
+
+.error-message {
+    display: block;
+    color: #e74c3c;
+    font-size: 0.85em;
+    margin-top: 5px;
+    min-height: 18px;
+}
+
+/* Button Styles */
+.submit-btn,
+.reset-btn {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.submit-btn:hover,
+.reset-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+}
+
+.submit-btn:active,
+.reset-btn:active {
+    transform: translateY(0);
+}
+
+.reset-btn {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+/* Results Section */
+.results {
+    margin-top: 40px;
+    animation: fadeIn 0.5s ease;
+}
+
+.results.hidden {
+    display: none;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.result-card {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    border-radius: 12px;
+    padding: 30px;
+    text-align: center;
+}
+
+.probability-circle {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 25px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.probability-circle::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    z-index: -1;
+}
+
+#probabilityValue {
+    font-size: 3em;
+    font-weight: bold;
+    color: #667eea;
+}
+
+#resultTitle {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+#resultMessage {
+    font-size: 1.1em;
+    color: #666;
+    margin-bottom: 25px;
+    line-height: 1.8;
+}
+
+.breakdown,
+.recommendations {
+    text-align: left;
+    margin-top: 25px;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.breakdown h4,
+.recommendations h4 {
+    color: #667eea;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+}
+
+.breakdown ul,
+.recommendations ul {
+    list-style: none;
+    padding: 0;
+}
+
+.breakdown li,
+.recommendations li {
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+    color: #555;
+}
+
+.breakdown li:last-child,
+.recommendations li:last-child {
+    border-bottom: none;
+}
+
+.breakdown li strong {
+    color: #667eea;
+}
+
+.recommendations li::before {
+    content: "✓ ";
+    color: #667eea;
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+/* Footer Styles */
+footer {
+    background: #f8f9fa;
+    padding: 25px 30px;
+    text-align: center;
+    color: #666;
+    border-top: 1px solid #e0e0e0;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+.disclaimer {
+    font-size: 0.85em;
+    font-style: italic;
+    color: #999;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    .subtitle {
+        font-size: 1em;
+    }
+
+    main {
+        padding: 25px 20px;
+    }
+
+    .form-section h2 {
+        font-size: 1.3em;
+    }
+
+    .probability-circle {
+        width: 150px;
+        height: 150px;
+    }
+
+    #probabilityValue {
+        font-size: 2.5em;
+    }
+
+    #resultTitle {
+        font-size: 1.5em;
+    }
+}
